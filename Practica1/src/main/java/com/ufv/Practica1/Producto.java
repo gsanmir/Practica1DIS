@@ -26,6 +26,9 @@ public class Producto {
 
 	}
 	
+	// Getter y setters 
+	//Las etiquetaremos con atributos xml
+	
 
 	public String getCodigo() {
 		return codigo;

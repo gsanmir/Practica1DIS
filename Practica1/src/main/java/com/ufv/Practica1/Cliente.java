@@ -7,6 +7,8 @@ public class Cliente {
 	private String 	Email;
 	private String  Telefono;
 	private String  Direccion[];
+	
+	
 	public Cliente(String nombre, String apellidos, String email, String telefono, String[] direccion) {
 		super();
 		Nombre = nombre;

@@ -15,7 +15,6 @@ public class Cliente {
 		Telefono = telefono;
 		Direccion = direccion;
 	}
-	
 	public String getNombre() {
 		return Nombre;
 	}

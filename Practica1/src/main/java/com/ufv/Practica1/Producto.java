@@ -7,7 +7,7 @@ public class Producto {
 	private String nombre;
 	private String descripcion;
 	private int stock;
-	private int[] localización = new int[3];
+	private int[] localizacion = new int[3];
 	private int pendientes;
 	
 	public Producto() {
@@ -16,15 +16,18 @@ public class Producto {
 	
 	
 	// Constructor
-	public Producto(String codigo, String nombre, String descripcion, int stock, int[] localización, int pendientes) {
+	public Producto(String codigo, String nombre, String descripcion, int stock, int[] localizacion, int pendientes) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.stock = stock;
-		this.localización = localización;
+		this.localizacion = localizacion;
 
 	}
+	
+	// Getter y setters 
+	//Las etiquetaremos con atributos xml
 	
 
 	public String getCodigo() {
@@ -67,13 +70,13 @@ public class Producto {
 	}
 
 
-	public int[] getLocalización() {
-		return localización;
+	public int[] getLocalizacion() {
+		return localizacion;
 	}
 
 
-	public void setLocalización(int[] localización) {
-		this.localización = localización;
+	public void setLocalizacion(int[] localizacion) {
+		this.localizacion = localizacion;
 	}
 
 

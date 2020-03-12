@@ -26,6 +26,9 @@ public class Producto {
 
 	}
 	
+	// Getter y setters 
+	//Las etiquetaremos con atributos xml
+	
 
 	public String getCodigo() {
 		return codigo;
@@ -72,7 +75,11 @@ public class Producto {
 	}
 
 
+<<<<<<< HEAD
 	public void setLocalización(int[] localizacion) {
+=======
+	public void setLocalizacion(int[] localizacion) {
+>>>>>>> d05a1fb7e5faa11dacdf75046d8cf216b6efa251
 		this.localizacion = localizacion;
 	}
 

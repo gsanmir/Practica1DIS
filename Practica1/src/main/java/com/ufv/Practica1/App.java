@@ -1,5 +1,7 @@
 package com.ufv.Practica1;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -12,8 +14,10 @@ import java.util.Scanner;
  * Hello world!
  *
  */
+
 public class App 
 {
+	
 	public static void clearScreen() {   
 	    System.out.println("\n\n\n\n\n\n");  
 	} 
@@ -51,10 +55,8 @@ public class App
 		
 	}
 	
-	public static void menuNuevosDatos() throws IOException {
-		ArrayList<Producto> producto = new ArrayList<Producto>();
-		ArrayList<Cliente> cliente = new ArrayList<Cliente>();
-		ArrayList<Pedidos> pedidos = new ArrayList<Pedidos>();
+	public static void menuNuevosDatos(ArrayList<Producto> producto, ArrayList<Cliente> cliente, ArrayList<Pedidos> pedidos) throws IOException {
+	
 		
 		Scanner sn = new Scanner(System.in);
 		boolean salir = false;
@@ -67,8 +69,8 @@ public class App
 			//clearScreen();
 			System.out.println("**************************");
 			System.out.println("1. Añadir Cliente");
-			System.out.println("2. Añadir Pedido");
-			System.out.println("3. Añadir Producto");
+			System.out.println("2. Añadir Producto");
+			System.out.println("3. Añadir Pedido");
 			System.out.println("4. Volver");
 			System.out.print("Selecciona la opcion: ");
 			//clearScreen();
@@ -98,6 +100,50 @@ public class App
 		}
 	}
 	
+	public static void menuVerAlmacen(ArrayList<Producto> producto, ArrayList<Cliente> cliente, ArrayList<Pedidos> pedidos) throws IOException {
+		
+			
+			Scanner sn = new Scanner(System.in);
+			boolean salir = false;
+	    	int option;
+	    	
+	    	
+			
+			
+			while(!salir) {
+				//clearScreen();
+				System.out.println("**************************");
+				System.out.println("1. Añadir Cliente");
+				System.out.println("2. Añadir Producto");
+				System.out.println("3. Añadir Pedido");
+				System.out.println("4. Volver");
+				System.out.print("Selecciona la opcion: ");
+				//clearScreen();
+	    		//menuPrincipal();
+	    		option = sn.nextInt();
+	    		
+	    		switch(option) {
+	    		case 1:
+	    			Cliente client = AniadirCliente();
+	    			cliente.add(client);
+	    			
+	    			break;
+	    		case 2:
+	    			Producto product = AniadirProducto();
+	    			producto.add(product);
+	    			
+	    			break;
+	    		case 3:
+	    			Pedidos ped = AniadirPedidos();
+	    			pedidos.add(ped);
+	    			
+	    			break;
+	    		case 4:
+	    			salir = true;
+	    			break;
+	    		}
+			}
+		}
 	
 	
     
@@ -110,7 +156,7 @@ public class App
 		String Apellidos = null;
 		String Email = null;
 		int Telefono = 0;
-		String[] Direccion = new String[4];
+		String[] Direccion = new String[5];
     	
     	System.out.println("Introducir datos de cliente");
     	System.out.println("Introduzca el nombre: ");
@@ -124,12 +170,14 @@ public class App
     	System.out.println("Introduzca la direccion: ");
     	System.out.print("Introduzca la calle: ");
     	Direccion[0] = in.readLine();
+    	System.out.print("Introduzca el numero: ");
+    	Direccion[1] = in.readLine();
     	System.out.print("Introduzca la poblacion: ");
-    	Direccion[1] = in.readLine();;
+    	Direccion[2] = in.readLine();;
     	System.out.print("Introduzca el codigo Postal: ");
-    	Direccion[2] = in.readLine();
-    	System.out.print("Introduzca el Pais: ");
     	Direccion[3] = in.readLine();
+    	System.out.print("Introduzca el Pais: ");
+    	Direccion[4] = in.readLine();
     	
     	System.out.println("Aniadido el Cliente Correctamente");
     	Cliente client = new Cliente(Nombre,Apellidos,Email,Telefono,Direccion);
@@ -174,7 +222,7 @@ public class App
     	java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     	String Productos;
         String Cantidad;
-    	String DireccionEntrega[]=  new String[3];
+    	String DireccionEntrega[]=  new String[5];
         String Destinatario;
     	String FechaEntrega;
     	
@@ -201,10 +249,79 @@ public class App
     	
     	return ped;
     }
+    
+    public static void writeToFile(String xml, String fileName) throws IOException {
+	    BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+	    try {
+			writer.write(xml);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			writer.close();
+		}
+	}
+    
+    public static void guardar(ArrayList<Producto> producto, ArrayList<Cliente> cliente, ArrayList<Pedidos> pedidos) {
+    	String header = "<?xml version=\"1.0\" encoding=\"UTF-8\">\n";
+		String root = "<Almacen>\n";
+		String xml = "";
+		String Client = "";
+		String Product = "";
+		String Pedidi = "";
+		if(cliente.size()>0) {
+			String CLientOpen= "\t<Clientes>\n";
+			Client += CLientOpen;
+			for (Cliente a: cliente) {
+				Client += a;
+				//System.out.println(xml);
+			}
+			String CLientClose= "\t</Clientes>\n";
+			Client += CLientClose;
+		}
+		
+		if(producto.size()>0) {
+			String ProdOpen= "\t<Productos>\n";
+			Product += ProdOpen;
+			for (Producto b: producto) {
+				Product += b;
+				//System.out.println(xml);
+			}
+			String ProductClose= "\t</Productos>\n";
+			Product += ProductClose;
+		}
+		
+		if(pedidos.size()>0) {
+			String PedOpen= "\t<Pedidos>\n";
+			Pedidi+= PedOpen;
+			for (Pedidos c: pedidos) {
+				Pedidi += c;
+				//System.out.println(xml);
+			}
+			String PedClose= "\t</Pedidos>\n";
+			Pedidi += PedClose;
+		}
+		
+		
+	
+		String closeRoot = "</Almacen>\n";
+		xml += header + root + Client + Product + Pedidi + closeRoot ;
+		System.out.println(xml);
+		try {
+			writeToFile(xml, "xmlFile.xml");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    
+    
 	public static void main( String[] args ) throws IOException
     {	
-		
-		
+		ArrayList<Producto> producto = new ArrayList<Producto>();
+		ArrayList<Cliente> cliente = new ArrayList<Cliente>();
+		ArrayList<Pedidos> pedidos = new ArrayList<Pedidos>();
     	Scanner sn = new Scanner(System.in);
     	boolean salir = false;
     	int option;
@@ -215,12 +332,13 @@ public class App
     		
     		switch(option) {
     		case 1:
-    			menuVerAlmacen();
+    			menuVerAlmacen(producto,cliente,pedidos);
     			break;
     		case 2:
-    			menuNuevosDatos();
+    			menuNuevosDatos(producto,cliente,pedidos);
     			break;
     		case 3:
+    			guardar(producto, cliente, pedidos);
     			sn.close();
     			salir = true;
     			break;

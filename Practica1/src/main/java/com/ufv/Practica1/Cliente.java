@@ -6,8 +6,11 @@ public class Cliente {
 	private String 	Apellidos;
 	private String 	Email;
 	private int  Telefono;
-	private String[]  Direccion = new String [4];
-	
+	private String[]  Direccion = new String [5];
+	@Override
+	public String toString() {
+		return "\t\t<Cliente>\n\t\t\t<Nombre>"+ Nombre +"</Nombre>\n\t\t\t<Apellidos>"+ Apellidos +"</Apellidos>\n\t\t\t<Email>"+ Email+"</Email>\n\t\t\t<Telefono>"+ Telefono +"</Telefono>\n\t\t\t<Direccion>\n\t\t\t\t<Calle>" + Direccion[0] + "</Calle>\n\t\t\t\t<Numero>"+Direccion[1]+"</Numero>\n\t\t\t\t<Codigo Postal>"+ Direccion[2] + "</Codigo Postal>\n\t\t\t\t<Poblacion>" + Direccion[3] + "</Poblacion>\n\t\t\t\t<Pais>" + Direccion[4] + "</Pais>\n\t\t\t<Direccion>\n\t\t</Cliente>\n";
+	}
 	public Cliente(String nombre, String apellidos, String email, int telefono, String[] direccion) {
 		super();
 		Nombre = nombre;

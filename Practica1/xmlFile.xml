@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8">
+<Almacen>
+	<Clientes>
+		<Cliente>
+			<Nombre>asdd</Nombre>
+			<Apellidos>asdsa</Apellidos>
+			<Email>sadasd</Email>
+			<Telefono>43543</Telefono>
+			<Direccion>
+				<Calle>dsfsdf</Calle>
+				<Numero>sddsg</Numero>
+				<Codigo Postal>gggg</Codigo Postal>
+				<Poblacion>gssg</Poblacion>
+				<Pais>ggsdg</Pais>
+			<Direccion>
+		</Cliente>
+	</Clientes>
+</Almacen>

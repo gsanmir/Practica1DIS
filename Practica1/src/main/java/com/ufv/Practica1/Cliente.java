@@ -5,11 +5,10 @@ public class Cliente {
 	private String  Nombre;
 	private String 	Apellidos;
 	private String 	Email;
-	private String  Telefono;
-	private String  Direccion[];
+	private int  Telefono;
+	private String[]  Direccion = new String [4];
 	
-	
-	public Cliente(String nombre, String apellidos, String email, String telefono, String[] direccion) {
+	public Cliente(String nombre, String apellidos, String email, int telefono, String[] direccion) {
 		super();
 		Nombre = nombre;
 		Apellidos = apellidos;
@@ -35,10 +34,10 @@ public class Cliente {
 	public void setEmail(String email) {
 		Email = email;
 	}
-	public String getTelefono() {
+	public int getTelefono() {
 		return Telefono;
 	}
-	public void setTelefono(String telefono) {
+	public void setTelefono(int telefono) {
 		Telefono = telefono;
 	}
 	public String[] getDireccion() {
@@ -47,6 +46,9 @@ public class Cliente {
 	public void setDireccion(String[] direccion) {
 		Direccion = direccion;
 	}
+	
+	
+	
 	
 	
 	

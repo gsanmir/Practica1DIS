@@ -4,7 +4,7 @@ public class Pedidos {
 
 	private String Productos;
 	private String Cantidad;
-	private String DireccionEntrega[];
+	private String DireccionEntrega[] = new String[3];
 	private String Destinatario;
 	private String FechaEntrega;
 	public Pedidos(String productos, String cantidad, String[] direccionEntrega, String destinatario,

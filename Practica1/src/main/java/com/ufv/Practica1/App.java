@@ -60,16 +60,18 @@ public class App
 		boolean salir = false;
     	int option;
     	
-		//clearScreen();
-		System.out.println("**************************");
-		System.out.println("1. Añadir Cliente");
-		System.out.println("2. Añadir Pedido");
-		System.out.println("3. Añadir Producto");
-		System.out.println("4. Volver");
-		System.out.print("Selecciona la opcion: ");
-		//clearScreen();
+    	
+		
 		
 		while(!salir) {
+			//clearScreen();
+			System.out.println("**************************");
+			System.out.println("1. Añadir Cliente");
+			System.out.println("2. Añadir Pedido");
+			System.out.println("3. Añadir Producto");
+			System.out.println("4. Volver");
+			System.out.print("Selecciona la opcion: ");
+			//clearScreen();
     		//menuPrincipal();
     		option = sn.nextInt();
     		
@@ -77,10 +79,12 @@ public class App
     		case 1:
     			Cliente client = AniadirCliente();
     			cliente.add(client);
+    			
     			break;
     		case 2:
     			Producto product = AniadirProducto();
     			producto.add(product);
+    			
     			break;
     		case 3:
     			Pedidos ped = AniadirPedidos();
@@ -108,7 +112,7 @@ public class App
 		int Telefono = 0;
 		String[] Direccion = new String[4];
     	
-    	System.out.print("Introducir datos de cliente");
+    	System.out.println("Introducir datos de cliente");
     	System.out.println("Introduzca el nombre: ");
     	Nombre = in.readLine();
     	System.out.print("Introduzca los Apellidos: ");

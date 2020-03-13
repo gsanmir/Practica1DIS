@@ -6,6 +6,16 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+//Necesario para leer el xml
+import java.io.File;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 import java.util.Scanner;
 
@@ -38,22 +48,174 @@ public class App
 		//clearScreen();
 	}
 	
+
 	//Método de ver Almacén de datos
 	public static void menuVerAlmacen() {
-		
-		//clearScreen();
-		System.out.println("**************************");
-		System.out.println("1. Ver Clientes");
-		System.out.println("2. Ver Pedidos");
-		System.out.println("3. Ver Productos");
-		System.out.println("4. Ver Todo");
-		System.out.println("5. Volver");
-		
-		//clearScreen();
-		
+
+	
+	public static void menuVisualizarAlmacen(ArrayList<Producto> producto, ArrayList<Cliente> cliente, ArrayList<Pedidos> pedidos) throws IOException {
 
 		
-	}
+		Scanner sn = new Scanner(System.in);
+		boolean salir = false;
+		int option;
+    	
+		while(!salir) {
+			//clearScreen();
+			System.out.println("**************************");
+			System.out.println("1. Ver Clientes");
+			System.out.println("2. Ver Productos");
+			System.out.println("3. Ver Pedidos");
+			System.out.println("4. Volver");
+			System.out.print("Selecciona la opcion: ");
+			//clearScreen();
+    		//menuPrincipal();
+    		option = sn.nextInt();
+    		
+    		switch(option) {
+    		case 1:
+    			
+    			try {
+    	            // Creo una instancia de DocumentBuilderFactory
+    	            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    	            // Creo un documentBuilder
+    	            DocumentBuilder builder = factory.newDocumentBuilder();
+    	 
+    	            // Obtengo el documento, a partir del XML
+    	            Document documento = builder.parse(new File("xmlFile.xml"));
+    	 
+    	            // Cojo todas las etiquetas cliente del documento
+    	            NodeList listaClientes = documento.getElementsByTagName("Cliente");
+    	            
+    	            // Recorro las etiquetas
+    	            for (int i = 0; i < listaClientes.getLength(); i++) {
+    	                // Cojo el nodo actual
+    	                Node nodo = listaClientes.item(i);
+    	                // Compruebo si el nodo es un elemento
+    	                if (nodo.getNodeType() == Node.ELEMENT_NODE) {
+    	                    // Lo transformo a Element
+    	                    Element e = (Element) nodo;
+    	                    // Obtengo sus hijos
+    	                    NodeList hijos = e.getChildNodes();
+    	                    // Recorro sus hijos
+    	                    for (int j = 0; j < hijos.getLength(); j++) {
+    	                        // Obtengo al hijo actual
+    	                        Node hijo = hijos.item(j);
+    	                        // Compruebo si es un nodo
+    	                        if (hijo.getNodeType() == Node.ELEMENT_NODE) {
+    	                            // Muestro el contenido
+    	                            System.out.println(hijo.getNodeName() + ": " + hijo.getTextContent());
+    	                        }
+    	 
+    	                    }
+    	                    System.out.println("");
+    	                }
+    	 
+    	            }
+    	 
+    	        } catch (ParserConfigurationException | SAXException | IOException ex) {
+    	            System.out.println(ex.getMessage());
+    	        }
+    			
+    			break;
+    		case 2:
+    			
+    			try {
+    	            // Creo una instancia de DocumentBuilderFactory
+    	            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    	            // Creo un documentBuilder
+    	            DocumentBuilder builder = factory.newDocumentBuilder();
+    	 
+    	            // Obtengo el documento, a partir del XML
+    	            Document documento = builder.parse(new File("xmlFile.xml"));
+    	 
+    	            // Cojo todas las etiquetas Producto del documento
+    	            NodeList listaProducto = documento.getElementsByTagName("Producto");
+    	            
+    	            // Recorro las etiquetas
+    	            for (int i = 0; i < listaProducto.getLength(); i++) {
+    	                // Cojo el nodo actual
+    	                Node nodo = listaProducto.item(i);
+    	                // Compruebo si el nodo es un elemento
+    	                if (nodo.getNodeType() == Node.ELEMENT_NODE) {
+    	                    // Lo transformo a Element
+    	                    Element e = (Element) nodo;
+    	                    // Obtengo sus hijos
+    	                    NodeList hijos = e.getChildNodes();
+    	                    // Recorro sus hijos
+    	                    for (int j = 0; j < hijos.getLength(); j++) {
+    	                        // Obtengo al hijo actual
+    	                        Node hijo = hijos.item(j);
+    	                        // Compruebo si es un nodo
+    	                        if (hijo.getNodeType() == Node.ELEMENT_NODE) {
+    	                            // Muestro el contenido
+    	                            System.out.println(hijo.getNodeName() + ": " + hijo.getTextContent());
+    	                        }
+    	 
+    	                    }
+    	                    System.out.println("");
+    	                }
+    	 
+    	            }
+    	 
+    	        } catch (ParserConfigurationException | SAXException | IOException ex) {
+    	            System.out.println(ex.getMessage());
+    	        }
+    			
+    			break;
+    		case 3:
+    			
+    			try {
+    	            // Creo una instancia de DocumentBuilderFactory
+    	            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    	            // Creo un documentBuilder
+    	            DocumentBuilder builder = factory.newDocumentBuilder();
+    	 
+    	            // Obtengo el documento, a partir del XML
+    	            Document documento = builder.parse(new File("xmlFile.xml"));
+    	 
+    	            // Cojo todas las etiquetas Pedido del documento
+    	            NodeList listaPedido = documento.getElementsByTagName("Pedido");
+    	            
+    	            // Recorro las etiquetas
+    	            for (int i = 0; i < listaPedido.getLength(); i++) {
+    	                // Cojo el nodo actual
+    	                Node nodo = listaPedido.item(i);
+    	                // Compruebo si el nodo es un elemento
+    	                if (nodo.getNodeType() == Node.ELEMENT_NODE) {
+    	                    // Lo transformo a Element
+    	                    Element e = (Element) nodo;
+    	                    // Obtengo sus hijos
+    	                    NodeList hijos = e.getChildNodes();
+    	                    // Recorro sus hijos
+    	                    for (int j = 0; j < hijos.getLength(); j++) {
+    	                        // Obtengo al hijo actual
+    	                        Node hijo = hijos.item(j);
+    	                        // Compruebo si es un nodo
+    	                        if (hijo.getNodeType() == Node.ELEMENT_NODE) {
+    	                            // Muestro el contenido
+    	                            System.out.println(hijo.getNodeName() + ": " + hijo.getTextContent());
+    	                        }
+    	 
+    	                    }
+    	                    System.out.println("");
+    	                }
+    	 
+    	            }
+    	 
+    	        } catch (ParserConfigurationException | SAXException | IOException ex) {
+    	            System.out.println(ex.getMessage());
+    	        }
+    			
+    			break;
+    		case 4:
+    			salir = true;
+    			break;
+    		}
+		}
+    	
+    }
+		
 	
 	//Menu nuevos datos para añadir datos 
 	public static void menuNuevosDatos(ArrayList<Producto> producto, ArrayList<Cliente> cliente, ArrayList<Pedidos> pedidos) throws IOException {
@@ -63,9 +225,6 @@ public class App
 		boolean salir = false;
     	int option;
     	
-    	
-		
-		
 		while(!salir) {
 			//clearScreen();
 			System.out.println("**************************");
@@ -101,6 +260,7 @@ public class App
 		}
 	}
 	
+
 	//Método Ver Almacén 
 	public static void menuVerAlmacen(ArrayList<Producto> producto, ArrayList<Cliente> cliente, ArrayList<Pedidos> pedidos) throws IOException {
 		
@@ -149,6 +309,7 @@ public class App
 	
 	
     //Método Solicita datos para añadir cliente y lo mete en un array de clientes
+
 	private static Cliente AniadirCliente() throws IOException {
 		// TODO Auto-generated method stub
     	java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -234,7 +395,7 @@ public class App
     	Productos = in.readLine();
     	System.out.print("Cantidad : ");
     	Cantidad = in.readLine();
-    	System.out.print("Direccion Entrega: ");
+    	System.out.println("Direccion Entrega: ");
     	System.out.print("Poblacion: ");
     	DireccionEntrega[0] =in.readLine();
     	System.out.print("Calle: ");
@@ -337,7 +498,7 @@ public class App
     		
     		switch(option) {
     		case 1:
-    			menuVerAlmacen(producto,cliente,pedidos);
+    			menuVisualizarAlmacen(producto,cliente,pedidos);
     			break;
     		case 2:
     			menuNuevosDatos(producto,cliente,pedidos);

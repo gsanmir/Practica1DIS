@@ -2,6 +2,7 @@
 <Almacen>
 	<Clientes>
 		<Cliente>
+<<<<<<< HEAD
 			<Nombre>e</Nombre>
 			<Apellidos>e</Apellidos>
 			<Email>ss</Email>
@@ -12,7 +13,48 @@
 				<Codigo_Postal>2</Codigo_Postal>
 				<Poblacion>2222</Poblacion>
 				<Pais>dfd</Pais>
+=======
+			<Nombre>luis</Nombre>
+			<Apellidos>llama</Apellidos>
+			<Email>sdfsdf</Email>
+			<Telefono>312331</Telefono>
+			<Direccion>
+				<Calle>fasd</Calle>
+				<Numero>2</Numero>
+				<Codigo_Postal>safd</Codigo_Postal>
+				<Poblacion>132</Poblacion>
+				<Pais>sadf</Pais>
+>>>>>>> 3f5d2873238fe65534e3ff71ed4655b2dd7bd003
 			</Direccion>
 		</Cliente>
 	</Clientes>
+	<Productos>
+		<Producto>
+			<Codigo>123123</Codigo>
+			<Nombre>avena</Nombre>
+			<Descripcion>muy rica</Descripcion>
+			<Stock>1</Stock>
+			<Localizacion>
+				<Pasillo>1</Pasillo>
+				<Estanteria>2</Estanteria>
+				<Estante>3</Estante>
+			</Localizacion>
+			<Pendientes>0</Pendientes>
+		</Producto>
+	</Productos>
+	<Pedidos>
+		<Pedido>
+			<Productos>nueces</Productos>
+			<Cantidad>0</Cantidad>
+			<Direccion>
+				<Calle>sdad</Calle>
+				<Numero>adad</Numero>
+				<Codigo_Postal>1</Codigo_Postal>
+				<Poblacion>null</Poblacion>
+				<Pais>null</Pais>
+			</Direccion>
+			<Destinatario>luis</Destinatario>
+			<Fecha_entrega>21231231</Fecha_entrega>
+		</Pedido>
+	</Pedidos>
 </Almacen>

@@ -9,7 +9,7 @@ public class Pedidos {
 	private String FechaEntrega;
 	@Override
 	public String toString() {
-		return "\t\t<Pedido>\n\t\t\t<Productos>"+ Productos +"</Productos>\n\t\t\t<Cantidad>"+ Cantidad +"</Cantidad>\n\t\t\t<Direccion>\n\t\t\t\t<Calle>" + DireccionEntrega[0] + "</Calle>\n\t\t\t\t<Numero>"+DireccionEntrega[1]+"</Numero>\n\t\t\t\t<Codigo Postal>"+ DireccionEntrega[2] + "</Codigo Postal>\n\t\t\t\t<Poblacion>" + DireccionEntrega[3] + "</Poblacion>\n\t\t\t\t<Pais>" + DireccionEntrega[4] + "</Pais>\n\t\t\t<Direccion>\n\t\t\t<Destinatario>"+Destinatario+"</Destinatario>\n\t\t\t<Fecha entrega>" + FechaEntrega + "<Fecha Entrega>\n\t\t</Pedido>\n";
+		return "\t\t<Pedido>\n\t\t\t<Productos>"+ Productos +"</Productos>\n\t\t\t<Cantidad>"+ Cantidad +"</Cantidad>\n\t\t\t<Direccion>\n\t\t\t\t<Calle>" + DireccionEntrega[0] + "</Calle>\n\t\t\t\t<Numero>"+DireccionEntrega[1]+"</Numero>\n\t\t\t\t<Codigo_Postal>"+ DireccionEntrega[2] + "</Codigo_Postal>\n\t\t\t\t<Poblacion>" + DireccionEntrega[3] + "</Poblacion>\n\t\t\t\t<Pais>" + DireccionEntrega[4] + "</Pais>\n\t\t\t</Direccion>\n\t\t\t<Destinatario>"+Destinatario+"</Destinatario>\n\t\t\t<Fecha_entrega>" + FechaEntrega + "<Fecha_entrega>\n\t\t</Pedido>\n";
 	}
 	
 	public Pedidos(String productos, String cantidad, String[] direccionEntrega, String destinatario,

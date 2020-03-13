@@ -39,8 +39,13 @@ public class App
 	}
 	
 	
-	public static void menuVerAlmacen() {
+	public static void menuVisualizarAlmacen(ArrayList<Producto> producto, ArrayList<Cliente> cliente, ArrayList<Pedidos> pedidos) throws IOException {
 		
+		Scanner sn = new Scanner(System.in);
+		boolean salir = false;
+		int option;
+    	
+		while(!salir) {
 		//clearScreen();
 		System.out.println("**************************");
 		System.out.println("1. Ver Clientes");
@@ -50,6 +55,25 @@ public class App
 		System.out.println("5. Volver");
 		
 		//clearScreen();
+		
+		option = sn.nextInt();
+		
+		switch(option) {
+		case 1:
+			
+			break;
+		case 2:
+			
+			break;
+		case 3:
+			
+			break;
+		case 4:
+			salir = true;
+			break;
+		}
+	}
+		
 		
 
 		
@@ -231,7 +255,7 @@ public class App
     	Productos = in.readLine();
     	System.out.print("Cantidad : ");
     	Cantidad = in.readLine();
-    	System.out.print("Direccion Entrega: ");
+    	System.out.println("Direccion Entrega: ");
     	System.out.print("Poblacion: ");
     	DireccionEntrega[0] =in.readLine();
     	System.out.print("Calle: ");
@@ -263,7 +287,7 @@ public class App
 	}
     
     public static void guardar(ArrayList<Producto> producto, ArrayList<Cliente> cliente, ArrayList<Pedidos> pedidos) {
-    	String header = "<?xml version=\"1.0\" encoding=\"UTF-8\">\n";
+    	String header = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 		String root = "<Almacen>\n";
 		String xml = "";
 		String Client = "";
@@ -332,7 +356,7 @@ public class App
     		
     		switch(option) {
     		case 1:
-    			menuVerAlmacen(producto,cliente,pedidos);
+    			menuVisualizarAlmacen(producto,cliente,pedidos);
     			break;
     		case 2:
     			menuNuevosDatos(producto,cliente,pedidos);

@@ -53,7 +53,7 @@ public class App
 		
 		Scanner sn = new Scanner(System.in);
 		boolean salir = false;
-int option;
+		int option;
     	
 		while(!salir) {
 			//clearScreen();
@@ -214,7 +214,7 @@ int option;
 	
 	public static void menuNuevosDatos(ArrayList<Producto> producto, ArrayList<Cliente> cliente, ArrayList<Pedidos> pedidos) throws IOException {
 	
-		
+		//menu para introducir nuevos datos
 		Scanner sn = new Scanner(System.in);
 		boolean salir = false;
     	int option;
@@ -233,17 +233,17 @@ int option;
     		
     		switch(option) {
     		case 1:
-    			Cliente client = AniadirCliente();
+    			Cliente client = AniadirCliente();//aniadir cliente
     			cliente.add(client);
     			
     			break;
     		case 2:
-    			Producto product = AniadirProducto();
+    			Producto product = AniadirProducto();//aniadir producto
     			producto.add(product);
     			
     			break;
     		case 3:
-    			Pedidos ped = AniadirPedidos();
+    			Pedidos ped = AniadirPedidos();//aniadir pedido
     			pedidos.add(ped);
     			
     			break;
@@ -258,7 +258,7 @@ int option;
 		// TODO Auto-generated method stub
     	java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     	
-    	
+    	//nos declaramos las variables que van a almacenar los datos recogido por pantalla
     	String Nombre = null;
 		String Apellidos = null;
 		String Email = null;
@@ -287,12 +287,12 @@ int option;
     	Direccion[4] = in.readLine();
     	
     	System.out.println("Aniadido el Cliente Correctamente");
-    	Cliente client = new Cliente(Nombre,Apellidos,Email,Telefono,Direccion);
+    	Cliente client = new Cliente(Nombre,Apellidos,Email,Telefono,Direccion);//añadimos un nuevo cliente con los datos introducidos
     	
     	return client;
 	}
 
-    private static Producto AniadirProducto() throws IOException {
+    private static Producto AniadirProducto() throws IOException {//nos declaramos las variables que van a almacenar los datos recogido por pantalla
     	java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     	String codigo;
     	String nombre;
@@ -321,12 +321,12 @@ int option;
     	pendientes = Integer.parseInt(in.readLine());
     	System.out.println("Aniadido el Producto Correctamente");
     	
-    	Producto product = new Producto(codigo,nombre,descripcion,stock,localizacion,pendientes);
+    	Producto product = new Producto(codigo,nombre,descripcion,stock,localizacion,pendientes);//añadimos un nuevo producto con los datos introducidos
     	
     	return product;
     }
     private static Pedidos AniadirPedidos() throws IOException {
-    	java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+    	java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));//nos declaramos las variables que van a almacenar los datos recogido por pantalla
     	String Productos;
         String Cantidad;
     	String DireccionEntrega[]=  new String[5];
@@ -352,12 +352,12 @@ int option;
     	
     	System.out.println("Pedido Correcto");
     	
-    	Pedidos ped = new Pedidos(Productos,Cantidad,DireccionEntrega,Destinatario,FechaEntrega);
+    	Pedidos ped = new Pedidos(Productos,Cantidad,DireccionEntrega,Destinatario,FechaEntrega);//añadimos un nuevo pedido con los datos introducidos
     	
     	return ped;
     }
     
-    public static void writeToFile(String xml, String fileName) throws IOException {
+    public static void writeToFile(String xml, String fileName) throws IOException {//metodo para escribir en un archivo recibe el string que tiene que escribir y el archivo donde lo tiene que escribir
 	    BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
 	    try {
 			writer.write(xml);
@@ -369,7 +369,7 @@ int option;
 		}
 	}
     
-    public static void guardar(ArrayList<Producto> producto, ArrayList<Cliente> cliente, ArrayList<Pedidos> pedidos) {
+    public static void guardar(ArrayList<Producto> producto, ArrayList<Cliente> cliente, ArrayList<Pedidos> pedidos) {//metodo para crear el string en formato xml para escribirlo en el archivo
     	String header = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 		String root = "<Almacen>\n";
 		String xml = "";
@@ -424,9 +424,9 @@ int option;
     
     
     
-	public static void main( String[] args ) throws IOException
+	public static void main( String[] args ) throws IOException//main del programa con el menu principal
     {	
-		ArrayList<Producto> producto = new ArrayList<Producto>();
+		ArrayList<Producto> producto = new ArrayList<Producto>();//creamos losarray list de cada uno de las clases
 		ArrayList<Cliente> cliente = new ArrayList<Cliente>();
 		ArrayList<Pedidos> pedidos = new ArrayList<Pedidos>();
     	Scanner sn = new Scanner(System.in);

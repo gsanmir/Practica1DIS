@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8">
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Almacen SYSTEM "dtdFile.dtd">
 
 <Almacen>
@@ -14,7 +14,7 @@
 				<Codigo Postal>gggg</Codigo Postal>
 				<Poblacion>gssg</Poblacion>
 				<Pais>ggsdg</Pais>
-			<Direccion>
+			</Direccion>
 		</Cliente>
 	</Clientes>
 </Almacen>

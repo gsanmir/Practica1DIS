@@ -22,11 +22,11 @@ public class App
 	    System.out.println("\n\n\n\n\n\n");  
 	} 
 	
-	/*Creamos un array por cada clase para ir rellenarlo con los datos */
 	
 	
 	
 	
+	//Método de menu Principal
 	public static void menuPrincipal() {
 		
 		//clearScreen();
@@ -38,7 +38,7 @@ public class App
 		//clearScreen();
 	}
 	
-	
+	//Método de ver Almacén de datos
 	public static void menuVerAlmacen() {
 		
 		//clearScreen();
@@ -55,6 +55,7 @@ public class App
 		
 	}
 	
+	//Menu nuevos datos para añadir datos 
 	public static void menuNuevosDatos(ArrayList<Producto> producto, ArrayList<Cliente> cliente, ArrayList<Pedidos> pedidos) throws IOException {
 	
 		
@@ -100,6 +101,7 @@ public class App
 		}
 	}
 	
+	//Método Ver Almacén 
 	public static void menuVerAlmacen(ArrayList<Producto> producto, ArrayList<Cliente> cliente, ArrayList<Pedidos> pedidos) throws IOException {
 		
 			
@@ -146,7 +148,7 @@ public class App
 		}
 	
 	
-    
+    //Método Solicita datos para añadir cliente y lo mete en un array de clientes
 	private static Cliente AniadirCliente() throws IOException {
 		// TODO Auto-generated method stub
     	java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -184,7 +186,7 @@ public class App
     	
     	return client;
 	}
-
+	//Método Solicita datos para añadir producto y lo mete en un array de productos
     private static Producto AniadirProducto() throws IOException {
     	java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     	String codigo;
@@ -218,6 +220,7 @@ public class App
     	
     	return product;
     }
+  //Método Solicita datos para añadir pedidos y lo mete en un array de pedidos
     private static Pedidos AniadirPedidos() throws IOException {
     	java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     	String Productos;
@@ -250,6 +253,7 @@ public class App
     	return ped;
     }
     
+  //Método para crear un documento xml 
     public static void writeToFile(String xml, String fileName) throws IOException {
 	    BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
 	    try {
@@ -261,9 +265,9 @@ public class App
 			writer.close();
 		}
 	}
-    
+  //Método para crear un documento xml  con sus respectivas apertura y cerrado de las etiquetas
     public static void guardar(ArrayList<Producto> producto, ArrayList<Cliente> cliente, ArrayList<Pedidos> pedidos) {
-    	String header = "<?xml version=\"1.0\" encoding=\"UTF-8\">\n";
+    	String header = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 		String root = "<Almacen>\n";
 		String xml = "";
 		String Client = "";
@@ -316,9 +320,10 @@ public class App
     }
     
     
-    
+  //Método Main principal para ir a las diferentes opciones
 	public static void main( String[] args ) throws IOException
     {	
+		/*Creamos un array por cada clase para ir rellenarlo con los datos */
 		ArrayList<Producto> producto = new ArrayList<Producto>();
 		ArrayList<Cliente> cliente = new ArrayList<Cliente>();
 		ArrayList<Pedidos> pedidos = new ArrayList<Pedidos>();

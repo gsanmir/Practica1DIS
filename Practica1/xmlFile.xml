@@ -1,20 +1,18 @@
-<?xml version="1.0" encoding="UTF-8">
-<!DOCTYPE Almacen SYSTEM "dtdFile.dtd">
-
+<?xml version="1.0" encoding="UTF-8"?>
 <Almacen>
 	<Clientes>
 		<Cliente>
-			<Nombre>asdd</Nombre>
-			<Apellidos>asdsa</Apellidos>
-			<Email>sadasd</Email>
-			<Telefono>43543</Telefono>
+			<Nombre>e</Nombre>
+			<Apellidos>e</Apellidos>
+			<Email>ss</Email>
+			<Telefono>343</Telefono>
 			<Direccion>
-				<Calle>dsfsdf</Calle>
-				<Numero>sddsg</Numero>
-				<Codigo Postal>gggg</Codigo Postal>
-				<Poblacion>gssg</Poblacion>
-				<Pais>ggsdg</Pais>
-			<Direccion>
+				<Calle>ddd</Calle>
+				<Numero>fffff</Numero>
+				<Codigo_Postal>2</Codigo_Postal>
+				<Poblacion>2222</Poblacion>
+				<Pais>dfd</Pais>
+			</Direccion>
 		</Cliente>
 	</Clientes>
 </Almacen>
